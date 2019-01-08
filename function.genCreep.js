@@ -1,10 +1,21 @@
 module.exports = {
 
-  run: function(parts, ratio, cost){
+  run: function(parts, ratio, smartMove, cost) {
 
-    i = 0
+    var i = 0
+    var a = 0
 
     body = []
+
+    function smartInsertMove() {
+      if (smartMove == true && a == 2 && i < cost) {
+        i = i + 50
+        if (i < cost) {
+          body.push(MOVE)
+          a = 0
+        }
+      }
+    }
 
     function findCost(part) {
 
@@ -12,55 +23,55 @@ module.exports = {
 
         case MOVE:
 
-        return 50
+          return 50
 
-        break;
+          break;
 
         case WORK:
 
-        return 100
+          return 100
 
-        break;
+          break;
 
         case CARRY:
 
-        return 50
+          return 50
 
-        break;
+          break;
 
         case ATTACK:
 
-        return 80
+          return 80
 
-        break;
+          break;
 
         case RANGED_ATTACK:
 
-        return 150
+          return 150
 
-        break;
+          break;
 
         case HEAL:
 
-        return 250
+          return 250
 
-        break;
+          break;
 
         case CLAIM:
 
-        return 600
+          return 600
 
-        break;
+          break;
 
         case TOUGH:
 
-        return 10
+          return 10
 
-        break;
+          break;
 
         default:
 
-        console.log('Error in function.genCreep; part ' + part + ' not recognized.')
+          console.log('Error in function.genCreep; part ' + part + ' not recognized.')
 
       }
 
@@ -77,7 +88,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[0])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
@@ -93,7 +105,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[1])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
@@ -109,7 +122,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[2])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
@@ -125,7 +139,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[3])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
@@ -141,7 +156,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[4])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
@@ -157,7 +173,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[5])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
@@ -173,7 +190,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[6])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
@@ -189,7 +207,8 @@ module.exports = {
           if (i < cost) {
 
             body.push(parts[7])
-
+            a = a + 1
+            smartInsertMove()
           }
 
         }
