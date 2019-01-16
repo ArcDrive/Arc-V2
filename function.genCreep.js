@@ -3,7 +3,7 @@ module.exports = {
   run: function(parts, ratio, smartMove, cost) {
 
     var i = 0
-    var a = 0
+    var a = 2
 
     body = []
 
@@ -216,6 +216,8 @@ module.exports = {
       }
 
     }
+
+    return body;
 
   }
 
