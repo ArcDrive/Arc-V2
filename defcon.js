@@ -1,11 +1,11 @@
 module.exports = {
-  run: function(roomName) {
+  run: function(room) {
 
-    var defcon = Game.rooms[roomName].memory.defcon
-    var hostileCreeps = Game.rooms[roomName].find(FIND_HOSTILE_CREEPS).length
-    var cooldDownTicks = Game.rooms[roomName].memory.cooldDownTicks
-    var heatUpTicks = Game.rooms[roomName].memory.heatUpTicks
-    var wall = Game.rooms[roomName].find(FIND_STRUCTURES, {
+    var defcon = room.memory.defcon
+    var hostileCreeps = room.find(FIND_HOSTILE_CREEPS).length
+    var cooldDownTicks = room.memory.cooldDownTicks
+    var heatUpTicks = room.memory.heatUpTicks
+    var wall = room.find(FIND_STRUCTURES, {
       filter: {
         structureType: STRUCTURE_WALL
       }
@@ -37,9 +37,9 @@ module.exports = {
     }
 
 
-    Game.rooms[roomName].memory.defcon = defcon
-    Game.rooms[roomName].memory.cooldDownTicks = cooldDownTicks
-    Game.rooms[roomName].memory.heatUpTicks = heatUpTicks
+    room.memory.defcon = defcon
+    room.memory.cooldDownTicks = cooldDownTicks
+    room.memory.heatUpTicks = heatUpTicks
     return defcon
   }
 }
