@@ -1,6 +1,43 @@
 module.exports = {
 
-  run: function(parts, ratio, smartMove, cost) {
+  run: function(type, cost, parts, ratio, smartMove) {
+
+    switch (type) {
+      case 'worker':
+        parts = [CARRY, WORK]
+        ratio = [1, 5]
+        smartMove = true
+        break;
+      case 'hauler':
+        parts = [CARRY]
+        ratio = [1]
+        smartMove = true
+        break;
+      case 'ranger':
+        parts = [RANGED_ATTACK]
+        ratio = [1]
+        smartMove = true
+        break;
+      case 'soldier':
+        parts = [ATTACK, TOUGH]
+        ratio = [1, 5]
+        smartMove = true
+        break;
+      case 'claimer':
+        parts = [CLAIM]
+        ratio = [1]
+        smartMove = true
+        break;
+      case 'medic':
+        parts = [HEAL, TOUGH]
+        ratio = [1, 1]
+        smartMove = true
+        break;
+      case 'custom':
+        break;
+      default:
+        console.log('Error in function.genCreep; creepType ' + type + ' not recognized.')
+    }
 
     var i = 0
     var a = 2
